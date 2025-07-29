@@ -2,26 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Amiibo Tracker - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amiibo Tracker</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <nav id="navbar">
-    <a href="index.html">Home</a>
-    <a href="all.html">All Amiibos</a>
-    <a href="categories.html">Categories</a>
-    <a href="owned.html">Owned</a>
-    <span id="userLinks"><a href="login.html">Login</a></span>
+
+<header>
+  <nav id="navbar" class="container">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Amiibo Tracker Logo" />
+      <span>Amiibo Tracker</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="all.html">All Amiibos</a>
+      <a href="categories.html">Categories</a>
+      <a href="owned.html">Owned</a>
+      <span id="userLinks"><a href="login.html">Login</a></span>
+    </div>
   </nav>
+</header>
 
-  <main>
-    <h1>Welcome to Amiibo Tracker!</h1>
-    <p>Track your Amiibo collection easily.</p>
-  </main>
+<main class="container">
+  <section class="hero">
+    <h1>Track your Amiibo collection with ease</h1>
+    <p>Manage your amiibos, see compatible games, and never lose track of your collection.</p>
+    <a href="all.html" class="btn-primary">Browse All Amiibos</a>
+  </section>
+</main>
 
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script src="js/firebase-init.js"></script>
-  <script src="js/nav.js"></script>
+<footer>
+  <div class="container">
+    <p>© 2025 Amiibo Tracker. All rights reserved.</p>
+    <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </div>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="js/firebase-init.js"></script>
+<script src="js/nav.js"></script>
+
 </body>
 </html>
