@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Amiibos - Amiibo Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html">Home</a>
+    <a href="all.html">All Amiibos</a>
+    <a href="categories.html">Categories</a>
+    <a href="owned.html">Owned</a>
+    <span id="userLinks"><a href="login.html">Login</a></span>
+  </nav>
+
+  <main>
+    <h1>All Amiibos</h1>
+    <input type="text" id="search" placeholder="Search Amiibo..." />
+    <div id="amiiboGrid" class="grid"></div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="js/firebase-init.js"></script>
+  <script src="js/nav.js"></script>
+
+  <script>
+    const grid = document.getElementById("amiiboGrid");
+    const searchInput = document.getElementById("search");
+
+    fetch("https://www.amiiboapi.com/api/amiibo/")
+      .then((res) => res.json())
+      .then((data) => {
+        displayAmiibos(data.amiibo);
+
+        searchInput.addEventListener("input", () => {
+          const filtered = data.amiibo.filter((a) =>
+            a.name.toLowerCase().includes(searchInput.value.toLowerCase())
+          );
+          displayAmiibos(filtered);
+        });
+      });
+
+    function displayAmiibos(amiibos) {
+      grid.innerHTML = "";
+      amiibos.forEach((a) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <a href="amiibo.html?id=${encodeURIComponent(a.tail)}">
+            <img src="${a.image}" alt="${a.name}" />
+            <h3>${a.name}</h3>
+            <p>${a.amiiboSeries}</p>
+          </a>
+        `;
+        grid.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
