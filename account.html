@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Account - Amiibo Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html">Home</a>
+    <a href="all.html">All Amiibos</a>
+    <a href="categories.html">Categories</a>
+    <a href="owned.html">Owned</a>
+    <span id="userLinks"><a href="login.html">Login</a></span>
+  </nav>
+
+  <main>
+    <h1>Your Account</h1>
+    <div id="userInfo"></div>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="js/firebase-init.js"></script>
+  <script src="js/nav.js"></script>
+
+  <script>
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        alert("Please login to view your account.");
+        window.location.href = "login.html";
+        return;
+      }
+      const userInfo = document.getElementById("userInfo");
+      userInfo.innerHTML = `
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>User ID:</strong> ${user.uid}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
