@@ -1,76 +1,120 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0 1rem;
-  background: #f9f9f9;
-  color: #333;
-}
-
-nav {
-  background: #cc0000;
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-main {
-  margin: 2rem auto;
-  max-width: 900px;
-}
-
-h1 {
-  color: #cc0000;
-}
-
-.grid, #ownedList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
-  gap: 1rem;
-}
-
-.card {
-  background: white;
-  border-radius: 6px;
-  padding: 1rem;
-  box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
-  text-align: center;
-}
-
-.card img {
-  max-width: 100px;
-  margin-bottom: 0.5rem;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  width: 100%;
-  max-width: 300px;
+/* Reset and base */
+* {
   box-sizing: border-box;
 }
 
-button {
-  background: #cc0000;
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0 1rem;
+  background-color: #fafafa;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-button:hover {
-  background: #a30000;
+a {
+  color: #d32f2f;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
+
+a:hover,
+a:focus {
+  color: #b71c1c;
+  outline: none;
+}
+
+/* Navigation */
+nav#navbar {
+  background-color: #c62828;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+}
+
+nav#navbar a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+nav#navbar a:hover,
+nav#navbar a:focus {
+  background-color: #b71c1c;
+  color: #fff;
+  text-decoration: none;
+  outline-offset: 3px;
+  outline: 2px solid #fff;
+}
+
+/* Main content */
+main {
+  flex-grow: 1;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Headings */
+h1, h2 {
+  color: #b71c1c;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Grid for Amiibo cards */
+.grid,
+#ownedList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgb(0 0 0 / 0.2);
+  outline: none;
+}
+
+.card img {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
